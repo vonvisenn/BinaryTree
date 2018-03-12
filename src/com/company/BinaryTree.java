@@ -4,7 +4,7 @@ public class BinaryTree {
 
     Node root;
 
-    public void addNode(int value, String name) {
+    public void addNode(int value, String name) {   //добавление нового узла по его значению
 
         Node newNode = new Node(value, name);
 
@@ -58,7 +58,17 @@ public class BinaryTree {
 
     }
 
-    public Node findNode(int value) {
+    public void addNode(Node newNode) {   //добавление существующего узла
+
+        int value = newNode.value;
+
+        String name = newNode.name;
+
+        addNode(value, name);
+
+    }
+
+    public Node findNode(int value) {      // поиск по значению узла
 
         Node additionalNode = root;
 
@@ -86,15 +96,22 @@ public class BinaryTree {
 
     }
 
-    public boolean contains(int value) {
+    public Node findNode(Node node) {     //поиск по узлу
+
+        return findNode(node.value);
+
+    }
+
+
+    public boolean contains(int value) {   //содержание по значению узла
 
         return findNode(value) != null;
 
     }
 
-    public void deleteNode(int value) {
+    public boolean contains(Node node) {   //содержание по узлу
 
-        //coming soon
+        return findNode(node.value) != null;
 
     }
 
@@ -122,7 +139,7 @@ class Node {
 
     public String toString() {
 
-        return name + " has a value of " + value;
+        return name + " " + value;
 
     }
 
